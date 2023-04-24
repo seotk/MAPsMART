@@ -24,9 +24,6 @@ function Self({ allDatas, datas, recentItems }) {
   let hot = useSelector((state) => state.hot);
   let dispatch = useDispatch();
 
-  console.log(allDatas);
-  console.log(datas);
-  console.log(recentItems);
   let [locatoinList] = useState(location);
   let [chooseGu, setChooseGu] = useState([]);
   let [allData, setAllData] = useState();
@@ -41,12 +38,6 @@ function Self({ allDatas, datas, recentItems }) {
   let [itemsPerPage] = useState(10);
   const [selectedOption, setSelectedOption] = useState("");
   // ========================================================
-  useEffect(() => {
-    const watched = JSON.parse(localStorage.getItem("watched")) || [];
-    watched.push(data);
-    localStorage.setItem("watched", JSON.stringify(watched));
-    console.log(watched);
-  }, [data]);
 
   // =========================================================
   const handleSearchGu = (e) => {
@@ -58,21 +49,21 @@ function Self({ allDatas, datas, recentItems }) {
     setChooseGu(locatoinList[inputText]);
     setData(
       inputText === "구전체"
-        ? [...allDatas]
-        : [...allDatas].filter((a) => {
+        ? [...recentItems]
+        : [...recentItems].filter((a) => {
             return Object.values(a).some(
               (val) => typeof val === "string" && val.includes(inputText)
             );
           })
     );
-    recentItems.forEach((data) => {
-      if (data.restrntNm) {
+    allDatas.forEach((data) => {
+      if (allDatas.restrntNm) {
         newDataF.push(data);
-      } else if (data.tourspotNm) {
+      } else if (allDatas.tourspotNm) {
         newDataT.push(data);
-      } else if (data.romsNm) {
+      } else if (allDatas.romsNm) {
         newDataR.push(data);
-      } else if (data.shppgNm) {
+      } else if (allDatas.shppgNm) {
         newDataS.push(data);
       }
     });
@@ -83,21 +74,21 @@ function Self({ allDatas, datas, recentItems }) {
     setDataS(newDataS);
     setData2(
       inputText === "구전체"
-        ? [...allDatas]
-        : allDatas.filter((a) => {
+        ? [...recentItems]
+        : recentItems.filter((a) => {
             return Object.values(a).some(
               (val) => typeof val === "string" && val.includes(inputText)
             );
           })
     );
-    recentItems.forEach((data) => {
-      if (data.restrntNm) {
+    allDatas.forEach((data) => {
+      if (allDatas.restrntNm) {
         newDataF.push(data);
-      } else if (data.tourspotNm) {
+      } else if (allDatas.tourspotNm) {
         newDataT.push(data);
-      } else if (data.romsNm) {
+      } else if (allDatas.romsNm) {
         newDataR.push(data);
-      } else if (data.shppgNm) {
+      } else if (allDatas.shppgNm) {
         newDataS.push(data);
       }
     });
@@ -127,14 +118,14 @@ function Self({ allDatas, datas, recentItems }) {
     const newDataR = [];
     const newDataS = [];
 
-    recentItems.forEach((data) => {
-      if (data.restrntNm) {
+    allDatas.forEach((data) => {
+      if (allDatas.restrntNm) {
         newDataF.push(data);
-      } else if (data.tourspotNm) {
+      } else if (allDatas.tourspotNm) {
         newDataT.push(data);
-      } else if (data.romsNm) {
+      } else if (allDatas.romsNm) {
         newDataR.push(data);
-      } else if (data.shppgNm) {
+      } else if (allDatas.shppgNm) {
         newDataS.push(data);
       }
     });
@@ -257,7 +248,7 @@ function Self({ allDatas, datas, recentItems }) {
         </div>
         {selectedComponent}
 
-        {/* {data.length === 0 && <p>결과가 존재하지 않습니다.</p>} */}
+        {/* {datas.length === 0 && <p>결과가 존재하지 않습니다.</p>} */}
       </div>
       <div className={`Cart ${isOn ? "cart--active" : ""}`}>
         <button
@@ -292,7 +283,6 @@ function Self({ allDatas, datas, recentItems }) {
           <Link to="/Cart">저장하기</Link>
         </div>
       </div>
-      {isLoading ? <div>로딩중</div> : <></>}
     </section>
   );
 }

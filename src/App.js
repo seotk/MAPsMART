@@ -20,13 +20,19 @@ function App() {
   let [data, setData] = useState();
   // ===========================================================================
   let [recentItems, setRecentItems] = useState([]);
-
   useEffect(() => {
-    if (localStorage.getItem("watched")) {
-      let recentItems = JSON.parse(localStorage.getItem("watched")).slice(-1);
-      setRecentItems(recentItems);
-    } else setRecentItems([]);
-  }, []);
+    const watched = [data];
+    localStorage.setItem("watched", JSON.stringify(watched));
+    console.log("asd", ...watched);
+    setRecentItems(...watched);
+    console.log(allData);
+  }, [data]);
+  // useEffect(() => {
+  //   if (localStorage.getItem("watched")) {
+  //     let recentItems = JSON.parse(localStorage.getItem("watched")).slice(-1);
+  //     setRecentItems(recentItems);
+  //   } else setRecentItems([]);
+  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
