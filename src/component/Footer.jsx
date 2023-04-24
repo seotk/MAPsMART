@@ -10,8 +10,9 @@ function Footer() {
           </Link>
         </div>
         <div className="">
-          <a href="#">깃 허브</a>
+          {/* <a href="#">깃 허브</a> */}
         </div>
+        <div>강사추가 !!!!!</div>
       </div>
     </footer>
   );
