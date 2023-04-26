@@ -2,13 +2,12 @@ import Pagination from "./Pagination";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, deleteItem } from "../store/cartStore,";
+import { Link } from "react-router-dom";
+import ItemModalA from "./ItemModalA";
 
 function Food({ list }) {
-  let cart = useSelector((state) => state.cart);
-  console.log(cart);
-
   let [currentPage, setCurrentPage] = useState(1);
-  let [itemsPerPage] = useState(20);
+  let [itemsPerPage] = useState(10);
   let [storage, setStorage] = useState([]);
   let dispatch = useDispatch();
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -17,11 +16,26 @@ function Food({ list }) {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  const saveDataToLocalStorage = (tourspotNm, tourspotAddr) => {
-    const data = { tourspotNm, tourspotAddr };
-    localStorage.setItem("selectedTour", JSON.stringify(data));
-    setStorage([...storage, data]);
+  const saveDataToLocalStorage = (
+    title,
+    addr,
+    tel,
+    mapLat,
+    mapLot,
+    summ,
+    dtlAddr
+  ) => {
+    const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
+    localStorage.setItem("selected", JSON.stringify(data));
+    setStorage([data]);
   };
+  const [showModalT, setShowModalT] = useState(false);
+  const openModal = (e) => {
+    setShowModalT(true);
+    e.preventDefault();
+  };
+  const closeModal = () => setShowModalT(false);
+  console.log(storage);
   return (
     <>
       <section className="Food selfList">
@@ -30,29 +44,43 @@ function Food({ list }) {
             <p
               key={i}
               onClick={() => {
-                saveDataToLocalStorage(a.tourspotNm, a.tourspotAddr);
+                saveDataToLocalStorage(
+                  a.restrntNm,
+                  a.restrntAddr,
+                  a.restrntInqrTel,
+                  a.mapLat,
+                  a.mapLot,
+                  a.restrntSumm,
+                  a.restrntDtlAddr
+                );
               }}
             >
-              <span>장소:</span>
-              {a.restrntNm}
-              {a.restrntDtlAddr}
-              <button
-                onClick={() => {
-                  dispatch(
-                    addItem({
-                      title: a.restrntNm,
-                      addr: a.restrntAddr,
-                      tel: a.restrntInqrTel,
-                      mapLat: a.mapLat,
-                      mapLot: a.mapLot,
-                      summ: a.restrntSumm,
-                      dtlAddr: a.restrntDtlAddr,
-                    })
-                  );
-                }}
-              >
-                담기
-              </button>
+              <Link to="#" onClick={openModal}>
+                <div className="Text">
+                  <span hidden>{i}</span>
+                  <span>{a.restrntNm}</span>
+                </div>
+              </Link>
+              <div className="Fn">
+                <img src="/img/favorites.svg" alt="북마크" />
+                <button
+                  onClick={() => {
+                    dispatch(
+                      addItem({
+                        title: a.restrntNm,
+                        addr: a.restrntAddr,
+                        tel: a.restrntInqrTel,
+                        mapLat: a.mapLat,
+                        mapLot: a.mapLot,
+                        summ: a.restrntSumm,
+                        dtlAddr: a.restrntDtlAddr,
+                      })
+                    );
+                  }}
+                >
+                  담기
+                </button>
+              </div>
             </p>
           );
         })}
@@ -63,6 +91,9 @@ function Food({ list }) {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
+      {showModalT && (
+        <ItemModalA currentData={storage} closeModal={closeModal} />
+      )}
     </>
   );
 }

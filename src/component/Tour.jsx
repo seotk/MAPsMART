@@ -1,14 +1,13 @@
 import Pagination from "./Pagination";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem, deleteItem } from "../store/cartStore,";
+import { Link } from "react-router-dom";
+import ItemModalA from "./ItemModalA";
 
 function Tour({ list }) {
-  let cart = useSelector((state) => state.cart);
-  console.log(cart);
-
   let [currentPage, setCurrentPage] = useState(1);
-  let [itemsPerPage] = useState(20);
+  let [itemsPerPage] = useState(10);
   let [storage, setStorage] = useState([]);
   let dispatch = useDispatch();
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -17,43 +16,72 @@ function Tour({ list }) {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  const saveDataToLocalStorage = (tourspotNm, tourspotAddr) => {
-    const data = { tourspotNm, tourspotAddr };
-    localStorage.setItem("selectedTour", JSON.stringify(data));
-    setStorage([...storage, data]);
+  const saveDataToLocalStorage = (
+    title,
+    addr,
+    tel,
+    mapLat,
+    mapLot,
+    summ,
+    dtlAddr
+  ) => {
+    const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
+    localStorage.setItem("selected", JSON.stringify(data));
+    setStorage([data]);
   };
+  const [showModalT, setShowModalT] = useState(false);
+  const openModal = (e) => {
+    setShowModalT(true);
+    e.preventDefault();
+  };
+  const closeModal = () => setShowModalT(false);
+  console.log(storage);
   return (
     <>
-      <section className="Food selfList">
+      <section className="Tour selfList">
         {currentData.map((a, i) => {
           return (
             <p
               key={i}
               onClick={() => {
-                saveDataToLocalStorage(a.tourspotNm, a.tourspotAddr);
+                saveDataToLocalStorage(
+                  a.tourspotNm,
+                  a.tourspotAddr,
+                  a.refadNo,
+                  a.mapLat,
+                  a.mapLot,
+                  a.restrntSumm,
+                  a.tourspotDtlAddr
+                );
               }}
             >
-              <span>장소:</span>
-              {a.tourspotNm}
-              {a.tourspotDtlAddr}
-              <button
-                onClick={() => {
-                  dispatch(
-                    addItem({
-                      id: i,
-                      title: a.tourspotNm,
-                      addr: a.tourspotAddr,
-                      tel: a.refadNo,
-                      mapLat: a.mapLat,
-                      mapLot: a.mapLot,
-                      summ: a.restrntSumm,
-                      dtlAddr: a.tourspotDtlAddr,
-                    })
-                  );
-                }}
-              >
-                담기
-              </button>
+              <Link to="#" onClick={openModal}>
+                <div className="Text">
+                  <span hidden>{i}</span>
+                  <span>{a.tourspotNm}</span>
+                </div>
+              </Link>
+              <div className="Fn">
+                <img src="/img/favorites.svg" alt="북마크" />
+                <button
+                  onClick={() => {
+                    dispatch(
+                      addItem({
+                        id: i,
+                        title: a.tourspotNm,
+                        addr: a.tourspotAddr,
+                        tel: a.refadNo,
+                        mapLat: "a.mapLat",
+                        mapLot: "a.mapLot",
+                        summ: a.restrntSumm,
+                        dtlAddr: a.tourspotDtlAddr,
+                      })
+                    );
+                  }}
+                >
+                  <span>담기</span>
+                </button>
+              </div>
             </p>
           );
         })}
@@ -64,6 +92,9 @@ function Tour({ list }) {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
+      {showModalT && (
+        <ItemModalA currentData={storage} closeModal={closeModal} />
+      )}
     </>
   );
 }

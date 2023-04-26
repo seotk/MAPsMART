@@ -19,7 +19,9 @@ let cart = createSlice({
 
       // if (num === -1) state.push(action.payload);
       // if (num !== -1) state[num].count += Number(action.payload.count);
-      state.push(action.payload);
+      if (state.length < 10) {
+        state.push(action.payload);
+      }
     },
     deleteItem(state, action) {
       let num = state.findIndex((a) => a.title === action.payload);

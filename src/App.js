@@ -1,38 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/my_reset.css";
 import "./css/App.css";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 // ===========================================================================
 import Main from "./pages/Main";
 import Self from "./pages/Self";
 import Cart from "./pages/Cart";
+import MainList from "./pages/MainList";
 import Footer from "./component/Footer";
 import Header from "./component/Header";
-import Tour from "./component/Tour";
-import Food from "./component/Food";
-import Shopp from "./component/Shop";
-import Room from "./component/Room";
+
 // ===========================================================================
 function App() {
-  let [allData, setAllData] = useState();
-  let [data, setData] = useState();
-  // ===========================================================================
-  let [recentItems, setRecentItems] = useState([]);
-  useEffect(() => {
-    const watched = [data];
-    localStorage.setItem("watched", JSON.stringify(watched));
-    console.log("asd", ...watched);
-    setRecentItems(...watched);
-    console.log(allData);
-  }, [data]);
-  // useEffect(() => {
-  //   if (localStorage.getItem("watched")) {
-  //     let recentItems = JSON.parse(localStorage.getItem("watched")).slice(-1);
-  //     setRecentItems(recentItems);
-  //   } else setRecentItems([]);
-  // }, []);
+  let urlName = useLocation().pathname;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,8 +38,7 @@ function App() {
           response4.data.response.body.items
         );
 
-        setAllData(mergedData);
-        setData([...mergedData]);
+        localStorage.setItem("data", JSON.stringify(mergedData));
       } catch (error) {
         console.error(error);
       }
@@ -72,18 +53,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
+        <Route path="/MainList" element={<MainList />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
-        <Route
-          path="/Self"
-          element={
-            <Self allDatas={allData} datas={data} recentItems={recentItems} />
-          }
-        >
-          <Route path="/Self/Tour" component={<Tour />} />
-          <Route path="/Self/Food" component={<Food />} />
-          <Route path="/Self/Shopp" component={<Shopp />} />
-          <Route path="/Self/Room" component={<Room />} />
-        </Route>
+        <Route path="/Self" element={<Self />}></Route>
         {/* <Route path="/detail/:id" element={<Detail list={products} />}></Route> */}
       </Routes>
       <Footer />
