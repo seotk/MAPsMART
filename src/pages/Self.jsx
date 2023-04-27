@@ -11,6 +11,8 @@ import Food from "../component/Food";
 import Shop from "../component/Shop";
 import Room from "../component/Room";
 import SubHeader from "../component/SubHeader";
+import TempCartList from "../component/TempCartList";
+import Select from "../component/Select";
 // ===========================================================================
 
 import "swiper/css";
@@ -29,7 +31,6 @@ function Self({}) {
   let hot = useSelector((state) => state.hot);
   // ===========================================================================
 
-  let dispatch = useDispatch();
   const [dataT, setDataT] = useState([]);
   const [dataR, setDataR] = useState([]);
   const [dataF, setDataF] = useState([]);
@@ -37,7 +38,7 @@ function Self({}) {
   let [locatoinList] = useState(location);
   let [chooseGu, setChooseGu] = useState([]);
   let [allData, setAllData] = useState();
-  let [data, setData] = useState();
+  let [data1, setData1] = useState();
   let [data2, setData2] = useState();
   let [isLoading, setIsLoading] = useState(true);
   let [recentItems, setRecentItems] = useState([]);
@@ -59,16 +60,10 @@ function Self({}) {
   // ========================================================
 
   useEffect(() => {
-    // localStorage에서 "selectedOption" 값을 가져와서 사용
     const savedData = localStorage.getItem("data");
-    // const selectedOption = localStorage.getItem("selectedOption") || "구전체";
-    // handleSearchGu({ target: { value: selectedOption } });
     if (savedData) {
-      setData(JSON.parse(savedData));
+      setData1(JSON.parse(savedData));
     }
-    // else {
-    //   setData(recentItems);
-    // }
     setRecentItems(JSON.parse(savedData));
   }, []);
   // ===========================================================================
@@ -87,7 +82,7 @@ function Self({}) {
               (val) => typeof val === "string" && val.includes(inputText)
             );
           });
-    setData(filteredData);
+    setData1(filteredData);
     setData2(filteredData);
     setCurrentPage(1);
   };
@@ -95,7 +90,7 @@ function Self({}) {
   const handleSearchDong = (e) => {
     const inputText2 = e.target.value.trim();
 
-    setData(
+    setData1(
       inputText2 === "전체" || null
         ? [...data2]
         : data2.filter((a) => {
@@ -108,16 +103,16 @@ function Self({}) {
   };
 
   useEffect(() => {
-    console.log(data);
-    if (!data) {
-      return;
+    console.log(data1);
+    if (!data1) {
+      return console.log("데이터가 없음");
     }
     const newDataF = [];
     const newDataT = [];
     const newDataR = [];
     const newDataS = [];
     // data 상태값이 변경될 때마다 해당 로직을 실행합니다.
-    data.forEach((data) => {
+    data1.forEach((data) => {
       if (data.restrntNm) {
         newDataF.push(data);
       } else if (data.tourspotNm) {
@@ -132,8 +127,8 @@ function Self({}) {
     setDataT(newDataT);
     setDataR(newDataR);
     setDataS(newDataS);
-  }, [data]);
-  // ===========================================================================
+  }, [data1]);
+  // ======================================================================
 
   const handleSelect = (event) => {
     setSelectedOption(event.target.value);
@@ -170,33 +165,14 @@ function Self({}) {
       <SubHeader />
       <section className="Self mw">
         <div className="">
-          <div className="Select">
-            <select onChange={handleSearchGu} name="name1" id="">
-              <option value="구전체">구전체</option>
-              <option value="서구">서구</option>
-              <option value="중구">중구</option>
-              <option value="동구">동구</option>
-              <option value="유성구">유성구</option>
-              <option value="대덕구">대덕구</option>
-            </select>
-            <select onChange={handleSearchDong} name="name2">
-              <option value="전체">전체</option>
-              {chooseGu.map((key, i) => (
-                <option key={i} value={key}>
-                  {key}
-                </option>
-              ))}
-            </select>
-            <select onChange={handleSelect} name="name2" id="">
-              <option value="1">관광지</option>
-              <option value="2">음식점</option>
-              <option value="3">쇼핑몰</option>
-              <option value="4">숙박업소</option>
-            </select>
-            <span className="CartHold" onClick={handleToggle}>
-              <img src="/img/bag.png" alt="장바구니" />
-            </span>
-          </div>
+          <Select
+            handleSearchGu={handleSearchGu}
+            handleSearchDong={handleSearchDong}
+            handleSelect={handleSelect}
+            handleToggle={handleToggle}
+            setChooseGu={setChooseGu}
+            chooseGu={chooseGu}
+          />
           {/* ====================================================== */}
 
           <h2>
@@ -274,38 +250,10 @@ function Self({}) {
               setIsOn(!isOn);
             }}
           >
-            x
+            X
           </button>
           <span>담은목록</span>
-          <div className="cart">
-            {cart.map((a, i) => {
-              return (
-                <div className="course" key={i}>
-                  {i < 10 ? (
-                    <div>
-                      <p>{i + 1}차</p>
-                      <div className="choiced">{a.title}</div>
-                      <button
-                        onClick={(e) => {
-                          return dispatch(
-                            deleteItem(
-                              e.target.parentNode.querySelector(".choiced")
-                                .textContent
-                            )
-                          );
-                        }}
-                      >
-                        삭제
-                      </button>
-                    </div>
-                  ) : null}
-
-                  {/* <CartList list={a} />; */}
-                </div>
-              );
-            })}
-            <Link to="/Cart">저장하기</Link>
-          </div>
+          <TempCartList cart={cart} />
         </div>
       </section>
     </>

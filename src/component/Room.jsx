@@ -71,8 +71,8 @@ function Tour({ list }) {
                         title: a.romsNm,
                         addr: a.romsAddr,
                         tel: a.romsRefadNo,
-                        mapLat: a.mapLat,
-                        mapLot: a.mapLot,
+                        mapLat: "a.mapLat",
+                        mapLot: "a.mapLot",
                         summ: a.romsSumm,
                         dtlAddr: a.romsDtlAddr,
                       })

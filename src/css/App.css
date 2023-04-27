@@ -32,6 +32,9 @@ img {
   font-size: 22px;
   padding: 1rem;
 }
+.person a:hover {
+  color: #38c976;
+}
 .gnb {
   display: flex;
   padding: 2rem auto;
@@ -118,6 +121,17 @@ img {
   height: 46px;
 }
 
+/* =================Cart========================= */
 .Cart {
-  height: 50px;
+  height: 70vh;
 }
+.Cart div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* #map {
+  width: 100%;
+  height: 100%;
+} */

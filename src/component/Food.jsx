@@ -70,8 +70,8 @@ function Food({ list }) {
                         title: a.restrntNm,
                         addr: a.restrntAddr,
                         tel: a.restrntInqrTel,
-                        mapLat: a.mapLat,
-                        mapLot: a.mapLot,
+                        mapLat: "a.mapLat",
+                        mapLot: "a.mapLot",
                         summ: a.restrntSumm,
                         dtlAddr: a.restrntDtlAddr,
                       })

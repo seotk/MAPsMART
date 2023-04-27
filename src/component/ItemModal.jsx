@@ -2,10 +2,10 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, deleteItem } from "../store/cartStore,";
+import Kakao from "./Kakao";
 function ItemModal({ hot, i, closeModal }) {
+  console.log(hot);
   let dispatch = useDispatch();
-
-  // 모달 창 열고 닫기
   console.log(hot[i]);
   const handleClose = () => closeModal();
   // Item 정보
@@ -20,7 +20,15 @@ function ItemModal({ hot, i, closeModal }) {
 
       {/* Body */}
       <Modal.Body>
-        {/* Item 정보 */}
+        <Kakao item={item} />
+        <div className="modalText">
+          <stong>{item.title}</stong>
+          <p>메인주소 :{item.addr ? item.addr : "데이터가 없습니다."}</p>
+          <p>서브주소 :{item.dtlAddr ? item.dtlAddr : "데이터가 없습니다."}</p>
+          <p>전화번호 :{item.tel ? item.tel : "데이터가 없습니다."}</p>
+          <p>요약 :{item.summ ? item.summ : "데이터가 없습니다."}</p>
+        </div>
+
         {/* ... */}
       </Modal.Body>
 

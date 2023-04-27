@@ -1,3 +1,9 @@
+:root {
+  --main-color: #ff931e;
+  --main-bgcolor1: #fafafa;
+  --font-family1: "Hahmlet", serif;
+  /* --font-family2: "Gaegu", cursive; */
+}
 .Self {
 }
 .Select {
@@ -22,6 +28,7 @@
   border: 3px solid #0f0f0f;
   border-radius: 50px;
   margin-right: 1rem;
+  cursor: pointer;
 }
 .Select select option {
   font-family: "Hahmlet";
@@ -38,8 +45,16 @@
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
 }
+
 .CartHold img {
+  width: 8%;
+}
+.CartHold img:hover {
+  background-image: url(/public/img/bag_effect.png);
+  z-index: 5;
+
   width: 8%;
 }
 .Self h2 {
@@ -207,7 +222,7 @@
 }
 /* ================pagination====================== */
 .pagination {
-  margin-top: 3rem;
+  margin: 3rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -240,7 +255,7 @@
   z-index: 1000;
   top: 10vh;
   right: -100%;
-  width: 20vw;
+  width: 400px;
   height: 80vh;
   background-color: white;
   transition: 0.5s;
@@ -253,11 +268,15 @@
 .tempCart.cart--active {
   right: 0%;
 }
-.tempCart button {
+.tempCart > button {
+  display: flex;
+  justify-content: flex-end;
   outline: none;
   border: none;
   background-color: transparent;
-  width: 50%;
+  width: 80%;
+  font-weight: bold;
+  margin: 2rem auto;
 }
 .tempCart span {
   font-family: "Hahmlet";
@@ -268,4 +287,98 @@
   /* identical to box height */
 
   color: #000000;
+}
+.tempCartList {
+  width: 80%;
+}
+.tempCartList .course {
+  display: flex;
+}
+.tempCartList .course .choiced {
+  flex-grow: 1;
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 1rem auto;
+}
+.tempCartList .btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.tempCartList .btns button {
+  padding: 10px 30px;
+  border: 3px solid #0f0f0f;
+  border-radius: 50px;
+  background-color: transparent;
+}
+.tempCartList .btns button:hover {
+  background-color: var(--main-color);
+}
+.tempCartList .btns button span {
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  /* identical to box height */
+
+  color: #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.nulled {
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 46px;
+}
+
+/* ==================modal===================== */
+.modal-dialog {
+  height: 50vh;
+}
+.modal-content {
+  height: 80vh;
+  width: 100vh;
+}
+.modal-body {
+  display: flex;
+}
+#map {
+  width: 100%;
+  height: 100%;
+  flex-grow: 0.5;
+}
+.modalText {
+  background-color: var(--main-bgcolor1);
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 1rem;
+}
+.modalText stong {
+  font-weight: 600;
+  font-size: 22px;
+}
+.modalText p {
+  margin-top: 2rem;
+}
+.modal-footer button {
+  width: 121px;
+  height: 49px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
+.modal-footer button:hover {
+  background: #fc9039;
 }

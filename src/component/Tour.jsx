@@ -9,6 +9,7 @@ function Tour({ list }) {
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(10);
   let [storage, setStorage] = useState([]);
+  let [like, setlike] = useState(false);
   let dispatch = useDispatch();
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFrirstItem = indexOfLastItem - itemsPerPage;
@@ -39,8 +40,8 @@ function Tour({ list }) {
   return (
     <>
       <section className="Tour selfList">
-        {currentData.map((a, i) => {
-          return (
+        {list.length ? (
+          currentData.map((a, i) => (
             <p
               key={i}
               onClick={() => {
@@ -83,8 +84,13 @@ function Tour({ list }) {
                 </button>
               </div>
             </p>
-          );
-        })}
+          ))
+        ) : (
+          <div className="nulled">
+            <span>데이터가 존재하지 않습니다...</span> <br />
+            <span>대전 시청에 문의하세요.</span>
+          </div>
+        )}
       </section>
       <Pagination
         itemsPerPage={itemsPerPage}
