@@ -31,7 +31,7 @@ function Select({
         <option value="4">숙박업소</option>
       </select>
       <span className="CartHold" onClick={handleToggle}>
-        <img src="/img/bag.png" alt="장바구니" />
+        <img src={`${process.env.PUBLIC_URL}/img/bag.png`} alt="장바구니" />
       </span>
     </div>
   );

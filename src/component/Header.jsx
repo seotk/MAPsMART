@@ -3,14 +3,13 @@ import React from "react";
 // Header.jsx 파일 상단에 다음 코드 추가
 
 function Header() {
-  
   return (
     <>
       <header className="hdCon ">
         <div className="hd mw">
           <div>
             <Link to="/" className="logo">
-              <img src="/img/logo.svg" alt="logo" />
+              <img src={`${process.env.PUBLIC_URL}/img/logo.svg`} alt="logo" />
             </Link>
           </div>
           <nav className="person">

@@ -6,17 +6,17 @@ function SubHeader() {
   document.querySelectorAll(".gnb a").forEach((item) => {
     item.classList.remove("on");
     if (item.getAttribute("href") === urlName) item.classList.add("on");
-    // else if (
-    //   urlName.indexOf("/detail/") === 0 &&
-    //   item.getAttribute("href") === "/Self"
-    // ) {
-    //   item.classList.add("on");
-    // } else if (
-    //   urlName.indexOf("/detail/") === 0 &&
-    //   item.getAttribute("href") === "/MainList"
-    // ) {
-    //   item.classList.add("on");
-    // }
+    else if (
+      urlName.indexOf("/detail/") === 0 &&
+      item.getAttribute("href") === "/Self"
+    ) {
+      item.classList.add("on");
+    } else if (
+      urlName.indexOf("/detail/") === 0 &&
+      item.getAttribute("href") === "/MainList"
+    ) {
+      item.classList.add("on");
+    }
   });
   return (
     <nav className={`gnb mw ${bar}`}>

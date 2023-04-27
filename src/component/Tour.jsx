@@ -63,7 +63,10 @@ function Tour({ list }) {
                 </div>
               </Link>
               <div className="Fn">
-                <img src="/img/favorites.svg" alt="북마크" />
+                <img
+                  src={`${process.env.PUBLIC_URL}/img/favorites.svg`}
+                  alt="북마크"
+                />
                 <button
                   onClick={() => {
                     dispatch(

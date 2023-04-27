@@ -6,12 +6,13 @@ function Footer() {
       <div className="ft mw">
         <div className="img">
           <Link to="/" className="logo">
-            <img src="/img/logo-main.svg" alt="logo" />
+            <img
+              src={`${process.env.PUBLIC_URL}/img/logo-main.svg`}
+              alt="logo"
+            />
           </Link>
         </div>
-        <div className="">
-          {/* <a href="#">깃 허브</a> */}
-        </div>
+        <div className="">{/* <a href="#">깃 허브</a> */}</div>
         <div>강사추가 !!!!!</div>
       </div>
     </footer>

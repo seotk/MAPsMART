@@ -7,10 +7,13 @@ function MainBanner() {
         <p>
           <span>지금 바로</span>
           <span>
-            <img src="/img/mainbanner1.jpg" alt="메인배너1" />
+            <img
+              src={`${process.env.PUBLIC_URL}/img/mainbanner1.jpg`}
+              alt="메인배너1"
+            />
             에서
           </span>
-          <img src="/img/cart.gif" alt="카트" />
+          <img src={`${process.env.PUBLIC_URL}/img/cart.gif`} alt="카트" />
           <span>원하는 장소를 담아보세요!</span>
         </p>
         <p>

@@ -178,7 +178,7 @@ function Self({}) {
           <h2>
             <span>핫</span>
             <span>플레이스</span>
-            <img src="/img/hot.png" alt="불" />
+            <img src={`${process.env.PUBLIC_URL}/img/hot.png`} alt="불" />
           </h2>
           <div className="hot">
             <Swiper
@@ -217,7 +217,10 @@ function Self({}) {
                       <div className="hotList">
                         <span>{a.id}</span>
                         <div className="listImg">
-                          <img src={`/img/${a.img}`} alt={a.title} />
+                          <img
+                            src={`${process.env.PUBLIC_URL}/img/${a.img}`}
+                            alt={a.title}
+                          />
                         </div>
                         <div className="listTxt">{a.title}</div>
                         <Link to="#" onClick={openModal}>
@@ -238,7 +241,7 @@ function Self({}) {
           <h2>
             <span>골라</span>
             <span>담기</span>
-            <img src="/img/pick.png" alt="불" />
+            <img src={`${process.env.PUBLIC_URL}/img/pick.png`} alt="불" />
           </h2>
           {selectedComponent}
         </div>
