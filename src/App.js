@@ -56,6 +56,7 @@ function App() {
         <Route path="/MainList" element={<MainList />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
         <Route path="/Self" element={<Self />}></Route>
+        <Route path="*" element={<Self />}></Route>
         {/* <Route path="/detail/:id" element={<Detail list={products} />}></Route> */}
       </Routes>
       <Footer />

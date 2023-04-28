@@ -9,7 +9,6 @@ function Tour({ list }) {
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(10);
   let [storage, setStorage] = useState([]);
-  let [like, setlike] = useState(false);
   let dispatch = useDispatch();
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFrirstItem = indexOfLastItem - itemsPerPage;
@@ -29,6 +28,15 @@ function Tour({ list }) {
     const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
     localStorage.setItem("selected", JSON.stringify(data));
     setStorage([data]);
+  };
+  let [like, setlike] = useState(false);
+  const handleClick = (e) => {
+    setlike(!like);
+    let parentDiv = e.target.closest("div");
+    if (parentDiv.tagName === "DIV") {
+      console.log(parentDiv);
+      // 처리할 코드
+    }
   };
   const [showModalT, setShowModalT] = useState(false);
   const openModal = (e) => {
@@ -63,10 +71,19 @@ function Tour({ list }) {
                 </div>
               </Link>
               <div className="Fn">
-                <img
-                  src={`${process.env.PUBLIC_URL}/img/favorites.svg`}
-                  alt="북마크"
-                />
+                {/* <div onClick={handleClick}>
+                  {like === false ? (
+                    <img
+                      src={`${process.env.PUBLIC_URL}/img/favorites.svg`}
+                      alt="북마크"
+                    />
+                  ) : (
+                    <img
+                      src={`${process.env.PUBLIC_URL}/img/favorites2.png`}
+                      alt="북마크"
+                    />
+                  )}
+                </div> */}
                 <button
                   onClick={() => {
                     dispatch(

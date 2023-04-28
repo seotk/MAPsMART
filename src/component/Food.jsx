@@ -62,10 +62,10 @@ function Food({ list }) {
                 </div>
               </Link>
               <div className="Fn">
-                <img
+                {/* <img
                   src={`${process.env.PUBLIC_URL}/img/favorites.svg`}
                   alt="북마크"
-                />
+                /> */}
                 <button
                   onClick={() => {
                     dispatch(

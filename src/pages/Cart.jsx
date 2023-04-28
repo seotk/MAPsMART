@@ -7,28 +7,31 @@ function Cart() {
   return (
     <div className="CartBody">
       <section className="Cart mw">
-        <Link>
+        <Link to="/Self">
           <button>뒤로가기</button>
         </Link>
-        <div>
-          <h2>나의 장바구니</h2>
-          <section>
-            <p>장소이름</p>
-            <p>정보</p>
-          </section>
+        <h2>나의 장바구니</h2>
+        <table className="CartDetail" border={1}>
+          <th>장소 이름</th>
+          <th>세부 정보</th>
           {cart.map((a, i) => {
             return (
-              <section key={i}>
-                <p>{a.title}</p>
-                <div>
-                  <p>{a.addr}</p>
-                  <p>{a.summ}</p>
-                  <p>{a.tel}</p>
-                </div>
-              </section>
+              <tr key={i}>
+                <td>{a.title}</td>
+                <td>
+                  <p>
+                    <span>{a.addr}</span> <br />
+                    <span>{a.tel}</span> <br />
+                    <span>{a.summ}</span>
+                  </p>
+                </td>
+              </tr>
             );
           })}
-        </div>
+        </table>
+        <a href="/project4/">
+          <button>홈으로</button>
+        </a>
       </section>
     </div>
   );

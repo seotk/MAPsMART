@@ -12,8 +12,20 @@ function Footer() {
             />
           </Link>
         </div>
-        <div className="">{/* <a href="#">깃 허브</a> */}</div>
-        <div>강사추가 !!!!!</div>
+        <div className="Link">
+          <a href="https://xorb0719.tistory.com/">
+            <img
+              src={`${process.env.PUBLIC_URL}/img/tistory.svg`}
+              alt="tistory"
+            />
+          </a>
+          <a href="https://github.com/seotk">
+            <img
+              src={`${process.env.PUBLIC_URL}/img/github.svg`}
+              alt="github"
+            />
+          </a>
+        </div>
       </div>
     </footer>
   );

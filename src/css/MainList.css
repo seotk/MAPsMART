@@ -1,0 +1,185 @@
+.MainList {
+}
+.cartList h2 {
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 46px;
+  color: #39b54a;
+  display: flex;
+  align-items: center;
+}
+.cartList h2 span:nth-of-type(2) {
+  color: black;
+}
+.cartList h2 img {
+  width: 3%;
+}
+.listCon {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.cartCard {
+  width: 45%;
+  background: #ffffff;
+  border: 4px solid #0f0f0f;
+  margin-top: 1rem;
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cartCard:hover {
+  box-shadow: 5px 5px 1px black;
+}
+.cartCard > div {
+  border-bottom: 3px solid black;
+  padding: 1rem;
+}
+.cartCard div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartCard div:nth-of-type(1) span {
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+}
+.cartCard div:nth-of-type(2) {
+}
+.cartCard div:nth-of-type(2) span {
+  padding: 0.5rem;
+  position: relative;
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+.cartCard div:nth-of-type(2) span::after {
+  content: ">";
+  position: absolute;
+  padding-left: 0.25rem;
+}
+.cartCard div:nth-of-type(2) span:nth-of-type(4)::after {
+  display: none;
+}
+.cartCard div > img {
+  width: 100%;
+}
+.cartList > span {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 1rem;
+}
+.cartList > span:hover a {
+  color: #39b54a;
+}
+/* ===============BestPlace===================== */
+.BestPlace {
+  border: 4px solid #0f0f0f;
+  border-radius: 50px;
+  position: relative;
+  margin-top: 8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.BestPlace > img {
+  width: 25%;
+  position: absolute;
+  top: -15%;
+  left: -10%;
+}
+.BestPlace .favoriteMost {
+  width: 100%;
+  padding: 3rem;
+}
+.BestPlace .bookmarkMost {
+  width: 50%;
+  padding: 3rem;
+}
+.BestPlace .pickMost {
+  width: 50%;
+  padding: 3rem;
+}
+.BestPlace h4 {
+  text-align: center;
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+}
+.favoriteMost ul {
+  display: flex;
+}
+.favoriteMost ul li {
+  width: calc(100% / 3);
+  display: flex;
+
+  border: 3px solid #0f0f0f;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.favoriteMost ul li img {
+  width: 40%;
+  border-radius: 40%;
+  border: 2px solid black;
+}
+.bookmarkMost ul li,
+.pickMost ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 3px solid #0f0f0f;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 1rem;
+  font-family: "Hahmlet";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.favoriteMost ul li div p:nth-of-type(2),
+.favoriteMost ul li div p:nth-of-type(3),
+.bookmarkMost ul li div p span:nth-of-type(2),
+.pickMost ul li div p span:nth-of-type(2) {
+  color: #7e7e7e;
+  font-size: 12px;
+}
+
+.favoriteMost ul li:hover {
+  box-shadow: 5px 5px 1px black;
+}
+.bookmarkMost ul li:hover {
+  box-shadow: 5px 5px 1px black;
+}
+.pickMost ul li:hover {
+  box-shadow: 5px 5px 1px black;
+}
