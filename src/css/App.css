@@ -122,6 +122,9 @@ img {
 }
 
 /* =================Cart========================= */
+.CartBody {
+  background-color: #fbd6bd;
+}
 .Cart {
   height: 70vh;
 }

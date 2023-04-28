@@ -32,9 +32,9 @@ function Self({}) {
   // ===========================================================================
 
   const [dataT, setDataT] = useState([]);
-  const [dataR, setDataR] = useState([]);
-  const [dataF, setDataF] = useState([]);
-  const [dataS, setDataS] = useState([]);
+  const [dataR, setDataR] = useState();
+  const [dataF, setDataF] = useState();
+  const [dataS, setDataS] = useState();
   let [locatoinList] = useState(location);
   let [chooseGu, setChooseGu] = useState([]);
   let [allData, setAllData] = useState();
