@@ -224,7 +224,7 @@ function Self({}) {
                         </div>
                         <div className="listTxt">{a.title}</div>
                         <Link to="#" onClick={openModal}>
-                          자세히보기
+                          <span>자세히보기</span>
                         </Link>
                       </div>
                     </SwiperSlide>
