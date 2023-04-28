@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# node.js+express CRUD - 맛집 추천 사이트(goodrestaurant)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 공공 API를 활용한 React 웹사이트(MAPsMART)
 
-## Available Scripts
+## 프로젝트 소개와 목적
 
-In the project directory, you can run:
+공공 API를 활용한 React 웹사이트(MAPsMART)는 대전의 주요 관광지, 음식점, 숙박시설, 쇼핑센터 등의 정보를 보여주는 웹사이트입니다. 이 웹사이트는 공공 API를 사용하여 실제 데이터를 가져와 지도 위에 마커로 표시하며, 사용자가 필터링하여 원하는 정보를 쉽게 찾을 수 있도록 제공합니다. 주로 원하는 지역을 선택했을 때 지역에 맞는 데이터 정보들이 표출되며 여러가지 장소들을 합쳐 하나의 장바구니 시스템을 만듭니다.
 
-### `npm start`
+이 프로젝트의 목적은 공공 API를 활용하여 React를 사용하는 방법을 익히고, react의 기본적인 문법과 여러가지의 API 데이터를 사용하여 활용하는 방법을 배우는 것입니다. 또한, 이를 통해 사용자에게 더욱 편리하고 유용한 서비스를 제공하는 방법을 연구하고 구현해보는 것이 목표입니다. 이를 통해 React와 공공 API에 대한 이해도를 높이며, 실제 서비스를 구현하는 데 필요한 기술과 개발 경험을 쌓을 수 있습니다.
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 시안
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<div style={{ display: "flex", flexDirection: "column" }}>
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FefGQp8%2FbtsdcIZW3IN%2FC3wP2FOjjBs41lHk2FMk2k%2Fimg.png" width="300px" height="30%" title="메인시안" alt="goodrestaurant">
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2ForfiU%2Fbtsc7wNRIpq%2FVJWRdIutT4HRWKXQekw3uK%2Fimg.png" width="300px" height="30%" title="서브페이지" alt="goodrestaurant">
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeIY9S5%2FbtsdaGvcUWa%2FDo5TMqL4zzUGGK9vLNYUfk%2Fimg.png" width="300px" height="30%" title="서브페이지" alt="goodrestaurant">
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmJEpj%2FbtsdaZVyGJB%2FLupGCkKapT1K9hawILsyaK%2Fimg.png" width="300px" height="30%" title="서브페이지" alt="goodrestaurant">
+</div>
+<br />
 
-### `npm test`
+## 개발기간
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2023.04. 10 - 2023. 04. 28
+<br />
 
-### `npm run build`
+## 사용언어(tool)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 개발환경 (environment)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<div style="display:flex">
+<img src="https://img.shields.io/badge/visual studio code-007ACC?style=for-the-badge&logo=visual studio code&logoColor=white">
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 스타일 (style)
 
-### `npm run eject`
+<div style="display:flex">
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+</div>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 개발 (development)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<div style="display:flex">
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
+<img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+</div>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Issue history
 
-## Learn More
+<br />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Link : [Notion](https://olive-shallot-51b.notion.site/Issue-history-80c948ec2c234778b08a5fd8fed7dd28)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 내용정리
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 기획
 
-### Analyzing the Bundle Size
+Link :[피그마(와이어프레임)](https://www.figma.com/file/KTwyDt4AR9nWYcL3zG302D/%EB%8C%80%EC%A0%84%EB%AB%84%EB%AB%84?type=design&node-id=0%3A1&t=UXAYexExcuZmaAWn-1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 디자인
 
-### Making a Progressive Web App
+Link : [피그마(index, 스타일가이드)](https://www.figma.com/file/KTwyDt4AR9nWYcL3zG302D/%EB%8C%80%EC%A0%84%EB%AB%84%EB%AB%84?type=design&node-id=0%3A1&t=UXAYexExcuZmaAWn-1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### 퍼블리싱
 
-### Advanced Configuration
+Link : [깃허브](https://github.com/seotk/project4)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### 구현
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link : [깃허브](https://github.com/seotk/project4)
