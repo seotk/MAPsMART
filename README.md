@@ -1,5 +1,3 @@
-# node.js+express CRUD - 맛집 추천 사이트(goodrestaurant)
-
 # 공공 API를 활용한 React 웹사이트(MAPsMART)
 
 ## 프로젝트 소개와 목적
