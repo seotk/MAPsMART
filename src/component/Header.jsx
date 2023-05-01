@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-// Header.jsx 파일 상단에 다음 코드 추가
+
 
 function Header() {
   return (

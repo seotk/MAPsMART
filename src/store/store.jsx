@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cart from "./cartStore,";
+import cart from "./cartStore";
 import hot from "./hotDataStore";
 
 export default configureStore({

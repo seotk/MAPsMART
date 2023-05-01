@@ -1,104 +1,85 @@
-import Pagination from "./Pagination";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, deleteItem } from "../store/cartStore,";
+import { addItem } from "../store/cartStore";
 import { Link } from "react-router-dom";
 import ItemModalA from "./ItemModalA";
 
-function Tour({ list }) {
-  let [currentPage, setCurrentPage] = useState(1);
-  let [itemsPerPage] = useState(10);
-  let [storage, setStorage] = useState([]);
-  let dispatch = useDispatch();
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFrirstItem = indexOfLastItem - itemsPerPage;
+function Room({
+  list,
+  storage,
+  saveDataToLocalStorage,
+  closeModalA,
+  openModalA,
+  showModalA,
+  dispatch,
+  indexOfFrirstItem,
+  indexOfLastItem,
+}) {
   const currentData = list.slice(indexOfFrirstItem, indexOfLastItem);
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-  const saveDataToLocalStorage = (
-    title,
-    addr,
-    tel,
-    mapLat,
-    mapLot,
-    summ,
-    dtlAddr
-  ) => {
-    const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
-    localStorage.setItem("selected", JSON.stringify(data));
-    setStorage([data]);
-  };
-  const [showModalT, setShowModalT] = useState(false);
-  const openModal = (e) => {
-    setShowModalT(true);
-    e.preventDefault();
-  };
-  const closeModal = () => setShowModalT(false);
-  console.log(storage);
+
   return (
     <>
       <section className="Room selfList">
-        {currentData.map((a, i) => {
-          return (
-            <p
-              key={i}
-              onClick={() => {
-                saveDataToLocalStorage(
-                  a.romsNm,
-                  a.romsAddr,
-                  a.romsRefadNo,
-                  a.mapLat,
-                  a.mapLot,
-                  a.romsSumm,
-                  a.romsDtlAddr
-                );
-              }}
-            >
-              <Link to="#" onClick={openModal}>
-                <div className="Text">
-                  <span hidden>{i}</span>
-                  <span>{a.romsNm}</span>
-                </div>
-              </Link>
-              <div className="Fn">
-                {/* <img
+        {list.length ? (
+          currentData.map((a, i) => {
+            return (
+              <p
+                key={i}
+                onClick={() => {
+                  saveDataToLocalStorage(
+                    a.romsNm,
+                    a.romsAddr,
+                    a.romsRefadNo,
+                    a.mapLat,
+                    a.mapLot,
+                    a.romsSumm,
+                    a.romsDtlAddr
+                  );
+                }}
+              >
+                <Link to="#" onClick={openModalA}>
+                  <div className="Text">
+                    <span hidden>{i}</span>
+                    <span>{a.romsNm}</span>
+                  </div>
+                </Link>
+                <div className="Fn">
+                  {/* <img
                   src={`${process.env.PUBLIC_URL}/img/favorites.svg`}
                   alt="북마크"
                 /> */}
-                <button
-                  onClick={() => {
-                    dispatch(
-                      addItem({
-                        id: i,
-                        title: a.romsNm,
-                        addr: a.romsAddr,
-                        tel: a.romsRefadNo,
-                        mapLat: "a.mapLat",
-                        mapLot: "a.mapLot",
-                        summ: a.romsSumm,
-                        dtlAddr: a.romsDtlAddr,
-                      })
-                    );
-                  }}
-                >
-                  담기
-                </button>
-              </div>
-            </p>
-          );
-        })}
+                  <button
+                    onClick={() => {
+                      dispatch(
+                        addItem({
+                          id: i,
+                          title: a.romsNm,
+                          addr: a.romsAddr,
+                          tel: a.romsRefadNo,
+                          mapLat: "a.mapLat",
+                          mapLot: "a.mapLot",
+                          summ: a.romsSumm,
+                          dtlAddr: a.romsDtlAddr,
+                        })
+                      );
+                    }}
+                  >
+                    담기
+                  </button>
+                </div>
+              </p>
+            );
+          })
+        ) : (
+          <div className="nulled">
+            <span>데이터가 존재하지 않습니다...</span> <br />
+            <span>대전 시청에 문의하세요.</span>
+          </div>
+        )}
       </section>
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={list.length}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-      {showModalT && (
-        <ItemModalA currentData={storage} closeModal={closeModal} />
+
+      {showModalA && (
+        <ItemModalA currentData={storage} closeModal={closeModalA} />
       )}
     </>
   );
 }
-export default Tour;
+export default Room;

@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function CartCard({ a, i }) {
+function CartCard({ a }) {
   let [like, setLike] = useState(false);
   const handleClick = () => {
     setLike(!like);
   };
   return (
-    <li className="cartCard" key={i}>
+    <li className="cartCard">
       <div>
         <span>{a.title}의 장바구니</span>
         <div onClick={handleClick}>

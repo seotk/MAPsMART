@@ -12,6 +12,7 @@ function Footer() {
             />
           </Link>
         </div>
+        <div className='Email'>seotkdeveloper.gmail.com</div>
         <div className="Link">
           <a href="https://xorb0719.tistory.com/">
             <img

@@ -1,6 +1,6 @@
 .MainList {
 }
-.cartList h2 {
+.CartList h2 {
   font-family: "Hahmlet";
   font-style: normal;
   font-weight: 700;
@@ -10,10 +10,10 @@
   display: flex;
   align-items: center;
 }
-.cartList h2 span:nth-of-type(2) {
+.CartList h2 span:nth-of-type(2) {
   color: black;
 }
-.cartList h2 img {
+.CartList h2 img {
   width: 3%;
 }
 .listCon {
@@ -72,7 +72,7 @@
 .cartCard div > img {
   width: 100%;
 }
-.cartList > span {
+.CartList > span {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -83,7 +83,7 @@
   line-height: 26px;
   padding: 1rem;
 }
-.cartList > span:hover a {
+.CartList > span:hover a {
   color: #39b54a;
 }
 /* ===============BestPlace===================== */
@@ -92,6 +92,7 @@
   border-radius: 50px;
   position: relative;
   margin-top: 8rem;
+  margin-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -103,15 +104,15 @@
   top: -15%;
   left: -10%;
 }
-.BestPlace .favoriteMost {
+.BestPlace .FavoriteMost {
   width: 100%;
   padding: 3rem;
 }
-.BestPlace .bookmarkMost {
+.BestPlace .BookmarkMost {
   width: 50%;
   padding: 3rem;
 }
-.BestPlace .pickMost {
+.BestPlace .PickMost {
   width: 50%;
   padding: 3rem;
 }
@@ -123,10 +124,10 @@
   font-size: 22px;
   line-height: 32px;
 }
-.favoriteMost ul {
+.FavoriteMost ul {
   display: flex;
 }
-.favoriteMost ul li {
+.FavoriteMost ul li {
   width: calc(100% / 3);
   display: flex;
 
@@ -143,13 +144,13 @@
   transition: 0.3s;
   cursor: pointer;
 }
-.favoriteMost ul li img {
+.FavoriteMost ul li img {
   width: 40%;
   border-radius: 40%;
   border: 2px solid black;
 }
-.bookmarkMost ul li,
-.pickMost ul li {
+.BookmarkMost ul li,
+.PickMost ul li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -166,20 +167,20 @@
   transition: 0.3s;
   cursor: pointer;
 }
-.favoriteMost ul li div p:nth-of-type(2),
-.favoriteMost ul li div p:nth-of-type(3),
-.bookmarkMost ul li div p span:nth-of-type(2),
-.pickMost ul li div p span:nth-of-type(2) {
+.FavoriteMost ul li div p:nth-of-type(2),
+.FavoriteMost ul li div p:nth-of-type(3),
+.BookmarkMost ul li div p span:nth-of-type(2),
+.PickMost ul li div p span:nth-of-type(2) {
   color: #7e7e7e;
   font-size: 12px;
 }
 
-.favoriteMost ul li:hover {
+.FavoriteMost ul li:hover {
   box-shadow: 5px 5px 1px black;
 }
-.bookmarkMost ul li:hover {
+.BookmarkMost ul li:hover {
   box-shadow: 5px 5px 1px black;
 }
-.pickMost ul li:hover {
+.PickMost ul li:hover {
   box-shadow: 5px 5px 1px black;
 }

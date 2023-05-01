@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/my_reset.css";
 import "./css/App.css";
-import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
 import axios from "axios";
 // ===========================================================================
 import Main from "./pages/Main";
@@ -14,8 +14,6 @@ import Header from "./component/Header";
 
 // ===========================================================================
 function App() {
-  let urlName = useLocation().pathname;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -53,11 +51,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
+        <Route path="/Self" element={<Self />}></Route>
         <Route path="/MainList" element={<MainList />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
-        <Route path="/Self" element={<Self />}></Route>
-        <Route path="*" element={<Self />}></Route>
-        {/* <Route path="/detail/:id" element={<Detail list={products} />}></Route> */}
+        <Route path="*" element={<Main />}></Route>
       </Routes>
       <Footer />
     </div>

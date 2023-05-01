@@ -9,7 +9,6 @@ body {
 }
 img {
   width: 100%;
-  
 }
 .mw {
   max-width: 1100px;
@@ -72,6 +71,12 @@ img {
 .ft .Link a {
   margin-left: 0.5rem;
 }
+.ft .Email {
+  font-family: var(--font-family1);
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
 .mainbg {
   background-color: var(--main-color);
 }
@@ -82,7 +87,7 @@ img {
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  height: 73vh;
+  height: 75vh;
   overflow-y: hidden;
 }
 .MainBanner p > * {

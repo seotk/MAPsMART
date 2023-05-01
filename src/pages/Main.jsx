@@ -1,7 +1,4 @@
-import MainBanner from "./MainBanner";
-// ========================================================
-
-import { useState, useEffect } from "react";
+import MainBanner from "../component/MainBanner";
 // ========================================================
 
 function Main() {

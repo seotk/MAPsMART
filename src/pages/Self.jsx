@@ -1,11 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 // ===========================================================================
 
-import location from "./location";
-import ItemModal from "../component/ItemModal";
+import location from "../store/location";
+import SelfHotList from "../component/SelfHotList";
 import Tour from "../component/Tour";
 import Food from "../component/Food";
 import Shop from "../component/Shop";
@@ -13,22 +12,15 @@ import Room from "../component/Room";
 import SubHeader from "../component/SubHeader";
 import TempCartList from "../component/TempCartList";
 import Select from "../component/Select";
+import Paginations from "../component/Pagination";
+
 // ===========================================================================
 
-import "swiper/css";
-import "swiper/css/pagination";
 import "../css/Main.css";
 // ===========================================================================
 
-import { Pagination } from "swiper";
-import SwiperCore, { Autoplay, Navigation } from "swiper";
-import { addItem, deleteItem } from "../store/cartStore,";
-// ===========================================================================
-SwiperCore.use([Autoplay]);
-
-function Self({}) {
+function Self() {
   let cart = useSelector((state) => state.cart);
-  let hot = useSelector((state) => state.hot);
   // ===========================================================================
 
   const [dataT, setDataT] = useState([]);
@@ -37,15 +29,24 @@ function Self({}) {
   const [dataS, setDataS] = useState();
   let [locatoinList] = useState(location);
   let [chooseGu, setChooseGu] = useState([]);
-  let [allData, setAllData] = useState();
   let [data1, setData1] = useState();
   let [data2, setData2] = useState();
-  let [isLoading, setIsLoading] = useState(true);
   let [recentItems, setRecentItems] = useState([]);
-  let [currentPage, setCurrentPage] = useState(1);
-  let [itemsPerPage] = useState(10);
   const [selectedOption, setSelectedOption] = useState("1");
   const [showModal, setShowModal] = useState(false);
+
+  //==============component==================
+  let [itemsPerPage] = useState(10);
+  const [showModalA, setShowModalA] = useState(false);
+  let [storage, setStorage] = useState([]);
+  let [currentPage, setCurrentPage] = useState(1);
+  let dispatch = useDispatch();
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFrirstItem = indexOfLastItem - itemsPerPage;
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   const [id, setId] = useState(false);
   const openModal = (e) => {
     setShowModal(true);
@@ -55,7 +56,12 @@ function Self({}) {
     console.log(id); //
     setId(id - 1);
   };
+  const openModalA = (e) => {
+    setShowModalA(true);
+    e.preventDefault();
+  };
   const closeModal = () => setShowModal(false);
+  const closeModalA = () => setShowModalA(false);
 
   // ========================================================
 
@@ -66,6 +72,21 @@ function Self({}) {
     }
     setRecentItems(JSON.parse(savedData));
   }, []);
+  // ========================================================
+
+  const saveDataToLocalStorage = (
+    title,
+    addr,
+    tel,
+    mapLat,
+    mapLot,
+    summ,
+    dtlAddr
+  ) => {
+    const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
+    localStorage.setItem("selected", JSON.stringify(data));
+    setStorage([data]);
+  };
   // ===========================================================================
 
   const handleSearchGu = (e) => {
@@ -134,15 +155,95 @@ function Self({}) {
     setSelectedOption(event.target.value);
   };
 
-  let selectedComponent = null;
+  let SelfList = null;
   if (selectedOption === "1") {
-    selectedComponent = <Tour list={dataT} />;
+    SelfList = (
+      <>
+        <Tour
+          list={dataT}
+          storage={storage}
+          saveDataToLocalStorage={saveDataToLocalStorage}
+          openModalA={openModalA}
+          showModalA={showModalA}
+          closeModalA={closeModalA}
+          dispatch={dispatch}
+          indexOfFrirstItem={indexOfFrirstItem}
+          indexOfLastItem={indexOfLastItem}
+        />
+        <Paginations
+          itemsPerPage={itemsPerPage}
+          totalItems={dataT.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </>
+    );
   } else if (selectedOption === "2") {
-    selectedComponent = <Food list={dataF} />;
+    SelfList = (
+      <>
+        <Food
+          list={dataF}
+          storage={storage}
+          saveDataToLocalStorage={saveDataToLocalStorage}
+          openModalA={openModalA}
+          showModalA={showModalA}
+          closeModalA={closeModalA}
+          dispatch={dispatch}
+          indexOfFrirstItem={indexOfFrirstItem}
+          indexOfLastItem={indexOfLastItem}
+        />
+        <Paginations
+          itemsPerPage={itemsPerPage}
+          totalItems={dataF.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </>
+    );
   } else if (selectedOption === "3") {
-    selectedComponent = <Shop list={dataS} />;
+    SelfList = (
+      <>
+        <Shop
+          list={dataS}
+          storage={storage}
+          saveDataToLocalStorage={saveDataToLocalStorage}
+          openModalA={openModalA}
+          showModalA={showModalA}
+          closeModalA={closeModalA}
+          dispatch={dispatch}
+          indexOfFrirstItem={indexOfFrirstItem}
+          indexOfLastItem={indexOfLastItem}
+        />
+        <Paginations
+          itemsPerPage={itemsPerPage}
+          totalItems={dataS.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </>
+    );
   } else if (selectedOption === "4") {
-    selectedComponent = <Room list={dataR} />;
+    SelfList = (
+      <>
+        <Room
+          list={dataR}
+          storage={storage}
+          saveDataToLocalStorage={saveDataToLocalStorage}
+          openModalA={openModalA}
+          showModalA={showModalA}
+          closeModalA={closeModalA}
+          dispatch={dispatch}
+          indexOfFrirstItem={indexOfFrirstItem}
+          indexOfLastItem={indexOfLastItem}
+        />
+        <Paginations
+          itemsPerPage={itemsPerPage}
+          totalItems={dataR.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </>
+    );
   }
   // ===========================================================================
 
@@ -154,10 +255,6 @@ function Self({}) {
   };
   // ===========================================================================
 
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, []);
-  //  해보는중
   // =========================================================
 
   return (
@@ -180,62 +277,12 @@ function Self({}) {
             <span>플레이스</span>
             <img src={`${process.env.PUBLIC_URL}/img/hot.png`} alt="불" />
           </h2>
-          <div className="hot">
-            <Swiper
-              breakpoints={{
-                // when window width is >= 320px (mobile)
-                320: {
-                  slidesPerView: 2,
-                },
-                // when window width is >= 768px (tablet)
-                768: {
-                  slidesPerView: 3,
-                },
-                // when window width is >= 1200px (desktop)
-                1200: {
-                  slidesPerView: 4,
-                },
-              }}
-              initialSlide={6}
-              slidesPerView={4}
-              spaceBetween={60}
-              loop={true}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: false,
-              }}
-              modules={[Pagination, Autoplay, Navigation]}
-              className="mySwiper"
-            >
-              {hot.map((a, i) => {
-                return (
-                  <>
-                    <SwiperSlide key={i}>
-                      <div className="hotList">
-                        <span>{a.id}</span>
-                        <div className="listImg">
-                          <img
-                            src={`${process.env.PUBLIC_URL}/img/${a.img}`}
-                            alt={a.title}
-                          />
-                        </div>
-                        <div className="listTxt">{a.title}</div>
-                        <Link to="#" onClick={openModal}>
-                          <span>자세히보기</span>
-                        </Link>
-                      </div>
-                    </SwiperSlide>
-                  </>
-                );
-              })}
-            </Swiper>
-            {showModal && (
-              <ItemModal hot={hot} i={id} closeModal={closeModal} />
-            )}
-          </div>
+          <SelfHotList
+            openModal={openModal}
+            showModal={showModal}
+            closeModal={closeModal}
+            id={id}
+          />
           {/* ====================================================== */}
 
           <h2>
@@ -243,7 +290,7 @@ function Self({}) {
             <span>담기</span>
             <img src={`${process.env.PUBLIC_URL}/img/pick.png`} alt="불" />
           </h2>
-          {selectedComponent}
+          {SelfList}
         </div>
         {/* ====================================================== */}
 

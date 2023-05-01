@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, deleteItem } from "../store/cartStore,";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartStore";
 import Kakao from "./Kakao";
 function ItemModal({ hot, i, closeModal }) {
   console.log(hot);

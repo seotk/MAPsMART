@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, deleteItem } from "../store/cartStore,";
+import { useDispatch } from "react-redux";
+import { deleteItem } from "../store/cartStore";
 import { Link } from "react-router-dom";
 
 function TempCartList({ cart }) {

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const { kakao } = window;
 
 function Kakao({ item, i }) {
@@ -20,7 +19,7 @@ function Kakao({ item, i }) {
     geocoder.addressSearch(item.addr, function (result, status) {
       // 정상적으로 검색이 완료됐으면
       if (status === kakao.maps.services.Status.OK) {
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        // var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
         setX(result[0].y);
         setY(result[0].x);
       } else {
@@ -37,7 +36,7 @@ function Kakao({ item, i }) {
 
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
-  }, [x, y]);
+  });
 
   return (
     <>

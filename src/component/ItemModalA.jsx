@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { addItem, deleteItem } from "../store/cartStore,";
+import { addItem } from "../store/cartStore";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
@@ -33,10 +33,6 @@ function ItemModalA({ currentData, closeModal }) {
 
         {/* Body */}
         <Modal.Body>
-          {/* {item.mapLat === "0.0" || "" || "0" ? (
-            <div>준비중입니다.</div>
-          ) : ( */}
-          {/* // )} */}
           <Kakao item={item} />
           <div className="modalText">
             <stong>{item.title}</stong>

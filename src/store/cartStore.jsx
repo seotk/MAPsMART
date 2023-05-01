@@ -4,16 +4,6 @@ let cart = createSlice({
   name: "cart",
   initialState: [],
   reducers: {
-    addCount(state, action) {
-      console.log("a");
-      let num = state.findIndex((a) => a._id === action.payload);
-      state[num].count++;
-    },
-    minusCount(state, action) {
-      console.log("a");
-      let num = state.findIndex((a) => a._id === action.payload);
-      state[num].count--;
-    },
     addItem(state, action) {
       const existingItemIndex = state.findIndex(
         (item) => item.title === action.payload.title
