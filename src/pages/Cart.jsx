@@ -4,7 +4,7 @@ import CartDetail from "../component/CartDetail";
 function Cart() {
   return (
     <div className="CartBody">
-      <section className="Cart mw">
+      <section className="Cart mw mw420 mw700">
         <Link to="/Self">
           <button>뒤로가기</button>
         </Link>

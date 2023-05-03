@@ -5,10 +5,12 @@
   /* --font-family2: "Gaegu", cursive; */
 }
 .Self {
+  overflow: hidden;
 }
 .Select {
   margin: 2rem 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -47,15 +49,12 @@
   justify-content: flex-end;
   cursor: pointer;
 }
-
-.CartHold img {
-  width: 8%;
+.CartHold span {
+  display: block;
+  width: 50px;
 }
-.CartHold img:hover {
-  background-image: url(/public/img/bag_effect.png);
-  z-index: 5;
-
-  width: 8%;
+.CartHold img {
+  width: 100%;
 }
 .Self h2 {
   display: flex;
@@ -89,6 +88,7 @@
 }
 .hot .mySwiper {
   overflow: visible;
+  padding: 1.5rem;
 }
 .hot .mySwiper .hotList {
   width: 225px;
@@ -162,11 +162,8 @@
   gap: 2rem;
 }
 .selfList p {
-  width: 515.27px;
   height: 70px;
-
   background: #ffffff;
-
   border: 3px solid #0f0f0f;
   border-radius: 20px;
   display: flex;
@@ -354,11 +351,12 @@
 }
 .modal-body {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 #map {
-  width: 100%;
+  width: 50%;
   height: 100%;
-  flex-grow: 0.5;
 }
 .modalText {
   background-color: var(--main-bgcolor1);
@@ -366,8 +364,10 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
   padding: 1rem;
+  flex-grow: 0.5;
+  width: 50%;
+  height: 100%;
 }
 .modalText stong {
   font-weight: 600;
@@ -375,6 +375,10 @@
 }
 .modalText p {
   margin-top: 2rem;
+}
+.modalText p:nth-of-type(4) {
+  overflow: scroll;
+  height: 100px;
 }
 .modal-footer button {
   width: 121px;
@@ -384,4 +388,69 @@
 }
 .modal-footer button:hover {
   background: #fc9039;
+}
+
+@media (max-width: 1100px) {
+}
+@media (max-width: 700px) {
+  .mw700 {
+    max-width: 500px;
+    width: calc(100% -2rem);
+    margin: auto;
+  }
+  .Select select {
+    padding: 10px 16px;
+    font-size: 16px;
+    width: 120px;
+
+    margin-right: 0rem;
+  }
+  .Self h2 {
+    font-size: 28px;
+  }
+  .CartHold {
+    width: 100%;
+  }
+  .selfList {
+    display: flex;
+    flex-direction: column;
+  }
+  .selfList p {
+  }
+}
+@media (max-width: 420px) {
+  body {
+    overflow-x: hidden;
+  }
+  .mw420 {
+    max-width: 300px;
+    width: calc(100% -1rem);
+    margin: auto;
+  }
+  .Select select {
+    width: 100%;
+  }
+  .tempCart {
+    position: fixed;
+    z-index: -10;
+    right: 0;
+    width: 100vw;
+    height: 80vh;
+    opacity: 0;
+  }
+  .tempCart.cart--active {
+    z-index: 100;
+    opacity: 1;
+  }
+  .modal-content {
+    width: 100%;
+  }
+  .modalText p:nth-of-type(4) {
+    overflow: scroll;
+    height: 25%;
+  }
+  .tempCartList .course .choiced {
+    font-size: 16px;
+    margin: 0.5rem auto;
+  }
 }

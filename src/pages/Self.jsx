@@ -16,7 +16,7 @@ import Paginations from "../component/Pagination";
 
 // ===========================================================================
 
-import "../css/Main.css";
+import "../css/Self.css";
 // ===========================================================================
 
 function Self() {
@@ -132,7 +132,7 @@ function Self() {
     const newDataT = [];
     const newDataR = [];
     const newDataS = [];
-    // data 상태값이 변경될 때마다 해당 로직을 실행합니다.
+
     data1.forEach((data) => {
       if (data.restrntNm) {
         newDataF.push(data);
@@ -260,7 +260,7 @@ function Self() {
   return (
     <>
       <SubHeader />
-      <section className="Self mw">
+      <section className="Self mw mw700 mw420">
         <div className="">
           <Select
             handleSearchGu={handleSearchGu}

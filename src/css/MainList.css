@@ -184,3 +184,54 @@
 .PickMost ul li:hover {
   box-shadow: 5px 5px 1px black;
 }
+.cartCard div:nth-of-type(2) {
+  border-bottom: none;
+}
+@media (max-width: 1100px) {
+  .FavoriteMost ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 700px) {
+  .mw700 {
+    max-width: 500px;
+    width: calc(100% -2rem);
+    margin: auto;
+  }
+  .BestPlace > img {
+    width: 50%;
+  }
+  .FavoriteMost ul li {
+    width: 100%;
+  }
+
+  .BestPlace .BookmarkMost {
+    width: 100%;
+  }
+  .BestPlace .PickMost {
+    width: 100%;
+  }
+}
+@media (max-width: 420px) {
+  body {
+    overflow-x: hidden;
+  }
+  .mw420 {
+    max-width: 300px;
+    width: calc(100% -1rem);
+    margin: auto;
+  }
+  .BestPlace > img {
+    width: 25%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  .BestPlace .FavoriteMost,
+  .BestPlace .BookmarkMost,
+  .BestPlace .PickMost {
+    padding: 1rem;
+  }
+}

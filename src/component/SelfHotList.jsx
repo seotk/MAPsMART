@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 SwiperCore.use([Autoplay]);
 function SelfHotList({ openModal, showModal, closeModal, id }) {
   let hot = useSelector((state) => state.hot);
-
+  const spaceBetween = 20;
   return (
     <>
       <div className="hot">
@@ -19,19 +19,22 @@ function SelfHotList({ openModal, showModal, closeModal, id }) {
             // when window width is >= 320px (mobile)
             320: {
               slidesPerView: 2,
+              spaceBetween: spaceBetween * 10,
             },
             // when window width is >= 768px (tablet)
-            768: {
+            700: {
               slidesPerView: 3,
+              spaceBetween: spaceBetween * 3,
             },
             // when window width is >= 1200px (desktop)
-            1200: {
+            1100: {
               slidesPerView: 4,
+              spaceBetween: spaceBetween * 4,
             },
           }}
           initialSlide={6}
           slidesPerView={4}
-          spaceBetween={60}
+          spaceBetween={spaceBetween}
           loop={true}
           autoplay={{
             delay: 5000,

@@ -16,7 +16,7 @@ function SubHeader() {
     });
   }, [urlName]);
   return (
-    <nav className={`gnb mw ${bar}`}>
+    <nav className={`gnb mw  ${bar}`}>
       <Link to="/Self">직접 담아보기</Link>
       <Link to="/MainList">추천 찾아보기</Link>
     </nav>

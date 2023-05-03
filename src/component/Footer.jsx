@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="ftCon ">
-      <div className="ft mw">
+      <div className="ft mw mw700 mw420">
         <div className="img">
           <Link to="/" className="logo">
             <img
@@ -12,7 +12,7 @@ function Footer() {
             />
           </Link>
         </div>
-        <div className='Email'>seotkdeveloper.gmail.com</div>
+        <div className="Email">seotkdeveloper.gmail.com</div>
         <div className="Link">
           <a href="https://xorb0719.tistory.com/">
             <img

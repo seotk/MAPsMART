@@ -2,18 +2,16 @@
 
 ## 프로젝트 소개와 목적
 
-공공 API를 활용한 React 웹사이트(MAPsMART)는 대전의 주요 관광지, 음식점, 숙박시설, 쇼핑센터 등의 정보를 보여주는 웹사이트입니다. 이 웹사이트는 공공 API를 사용하여 실제 데이터를 가져와 지도 위에 마커로 표시하며, 사용자가 필터링하여 원하는 정보를 쉽게 찾을 수 있도록 제공합니다. 주로 원하는 지역을 선택했을 때 지역에 맞는 데이터 정보들이 표출되며 여러가지 장소들을 합쳐 하나의 장바구니 시스템을 만듭니다.
-
-이 프로젝트의 목적은 공공 API를 활용하여 React를 사용하는 방법을 익히고, react의 기본적인 문법과 여러가지의 API 데이터를 사용하여 활용하는 방법을 배우는 것입니다. 또한, 이를 통해 사용자에게 더욱 편리하고 유용한 서비스를 제공하는 방법을 연구하고 구현해보는 것이 목표입니다. 이를 통해 React와 공공 API에 대한 이해도를 높이며, 실제 서비스를 구현하는 데 필요한 기술과 개발 경험을 쌓을 수 있습니다.
+이 프로젝트는 공공 API를 활용하여 React 웹사이트를 만드는 것으로, 대전의 관광지, 음식점, 숙박시설, 쇼핑센터 등의 정보를 실제 데이터를 가져와 지도에 마커로 표시하고, 사용자가 필터링하여 원하는 정보를 찾을 수 있도록 제공합니다. 이를 통해 React와 공공 API에 대한 이해를 높이고, 사용자에게 더욱 편리하고 유용한 서비스를 제공하는 방법을 연구하고 구현해보았습니다. 이를 통해 필요한 기술과 개발 경험을 쌓을 수 있었습니다.
+<br />
 <br />
 
 ## 시안
 
-<div style={{ display: "flex", flexDirection: "column" }}>
-  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FefGQp8%2FbtsdcIZW3IN%2FC3wP2FOjjBs41lHk2FMk2k%2Fimg.png" width="300px" height="30%" title="메인시안" alt="MAPsMART">
-  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2ForfiU%2Fbtsc7wNRIpq%2FVJWRdIutT4HRWKXQekw3uK%2Fimg.png" width="300px" height="30%" title="서브페이지" alt="MAPsMART">
-  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeIY9S5%2FbtsdaGvcUWa%2FDo5TMqL4zzUGGK9vLNYUfk%2Fimg.png" width="300px" height="30%" title="서브페이지" alt="MAPsMART">
-  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmJEpj%2FbtsdaZVyGJB%2FLupGCkKapT1K9hawILsyaK%2Fimg.png" width="300px" height="30%" title="서브페이지" alt="MAPsMART">
+[보러가기](https://seotk.github.io/project4/)
+
+<div>
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdJcPia%2FbtsdMZNbGz2%2FghdmGmKmkpjLpK8BUfQQkk%2Fimg.png" width="100%" height="30%" title="메인시안" alt="MAPsMART">
 </div>
 <br />
 
@@ -31,6 +29,7 @@
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
 </div>
+<br />
 
 #### 스타일 (style)
 
@@ -39,6 +38,7 @@
 
  <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 </div>
+<br />
 
 #### 개발 (development)
 
@@ -47,12 +47,26 @@
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
 <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
 </div>
+<br />
+<br />
 
-## Issue history
+## History
 
 <br />
 
-Link : [Notion](https://olive-shallot-51b.notion.site/Issue-history-80c948ec2c234778b08a5fd8fed7dd28)
+#### 사용한 문법, 훅 등 정리
+
+Link : [organize history](https://xorb0719.tistory.com/20)
+<br />
+
+#### 이슈 정리
+
+Link : [Issue history](https://xorb0719.tistory.com/21)
+<br />
+<br />
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdgv5MA%2FbtsdKr5foyC%2FbCRDGF2tdoBPc0tWlIhAKK%2Fimg.png" width="30%" height="10%" title="컴포넌트" alt="MAPsMART">
+<br />
+<br />
 
 ## 내용정리
 

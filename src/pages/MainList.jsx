@@ -17,7 +17,7 @@ function MainList() {
   return (
     <>
       <SubHeader />
-      <section className="MainList ">
+      <section className="MainList mw700 mw420 ">
         <CartList BestCart={BestCart} />
         <BestPlace
           favoriteMost={favoriteMost}

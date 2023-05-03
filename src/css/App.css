@@ -18,6 +18,7 @@ img {
 .hdCon,
 .ftCon {
   background-color: var(--main-color);
+  height: 12.5vh;
 }
 
 .hd,
@@ -25,6 +26,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 .person a {
   font-family: var(--font-family1);
@@ -79,16 +81,17 @@ img {
 }
 .mainbg {
   background-color: var(--main-color);
+  height: 75vh;
 }
 /* =======================MainBanner====================== */
 .MainBanner {
   background-color: var(--main-color);
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
-  height: 75vh;
   overflow-y: hidden;
+  height: 100%;
 }
 .MainBanner p > * {
 }
@@ -121,20 +124,28 @@ img {
 }
 .MainBanner .btns button {
   outline: none;
-  background: #39b54a;
-  padding: 22px 36px;
   border: 3px solid #0f0f0f;
   border-radius: 40px;
+  margin: 2rem;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.MainBanner .btns button:hover {
+  background: #39b54a;
+}
+.MainBanner .btns button:hover a {
+  color: #0f0f0f;
+}
+.MainBanner .btns > button > a {
+  display: block;
+  padding: 22px 36px;
+  width: 100%;
+  height: 100%;
   font-family: "Hahmlet";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   text-align: center;
-  margin: 2rem;
-}
-.MainBanner .btns > button > a {
-  width: 128px;
-  height: 46px;
 }
 
 /* =================Cart========================= */
@@ -210,3 +221,86 @@ img {
   width: 100%;
   height: 100%;
 } */
+
+/* =================================================== */
+
+@media (max-width: 1100px) {
+}
+@media (max-width: 700px) {
+  .mw700 {
+    max-width: 500px;
+    width: calc(100% -2rem);
+    margin: auto;
+  }
+  .logo img {
+    width: 60%;
+  }
+  .MainBanner {
+  }
+  .MainBanner p:nth-of-type(1) span {
+    font-size: 32px;
+  }
+  .MainBanner p:nth-of-type(2) span {
+    font-size: 14px;
+  }
+  .MainBanner .btns > button {
+    margin: 1rem;
+  }
+  .MainBanner .btns > button > a {
+    padding: 24px 26px;
+
+    font-size: 16px;
+    padding: 0.5rem;
+  }
+  .ft .Email {
+    font-size: 12px;
+  }
+  .ft .Link {
+    width: 20%;
+  }
+  .gnb a {
+    font-size: 16px;
+    margin: 1rem;
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 420px) {
+  .mw420 {
+    max-width: 300px;
+    width: calc(100% -1rem);
+    margin: auto;
+  }
+
+  .person a {
+    font-size: 16px;
+    padding: 0.5rem;
+  }
+  .MainBanner p:nth-of-type(1) span {
+    font-size: 24px;
+  }
+  .MainBanner p:nth-of-type(2) span {
+    font-size: 12px;
+  }
+  .MainBanner .btns > button {
+    margin: 1rem;
+  }
+  .MainBanner .btns > button > a {
+    padding: 24px 26px;
+
+    font-size: 16px;
+    padding: 0.5rem;
+  }
+  .Cart a button {
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+  }
+  .CartDetail {
+    margin: auto;
+  }
+  .CartDetail th {
+    font-size: 20px;
+  }
+  .CartBody {
+    min-height: 75vh;
+  }
+}

@@ -30,9 +30,11 @@ function Select({
         <option value="3">쇼핑몰</option>
         <option value="4">숙박업소</option>
       </select>
-      <span className="CartHold" onClick={handleToggle}>
-        <img src={`${process.env.PUBLIC_URL}/img/bag.png`} alt="장바구니" />
-      </span>
+      <div className="CartHold">
+        <span onClick={handleToggle}>
+          <img src={`${process.env.PUBLIC_URL}/img/bag.png`} alt="장바구니" />
+        </span>
+      </div>
     </div>
   );
 }

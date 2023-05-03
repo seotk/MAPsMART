@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-
 function Header() {
   return (
     <>
       <header className="hdCon ">
-        <div className="hd mw">
+        <div className="hd mw mw700 mw420">
           <div>
             <Link to="/" className="logo">
               <img src={`${process.env.PUBLIC_URL}/img/logo.svg`} alt="logo" />
