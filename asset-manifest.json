@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/project4/static/css/main.0eb31110.css",
-    "main.js": "/project4/static/js/main.9c81ac60.js",
-    "static/js/787.4177f587.chunk.js": "/project4/static/js/787.4177f587.chunk.js",
-    "index.html": "/project4/index.html",
-    "main.0eb31110.css.map": "/project4/static/css/main.0eb31110.css.map",
-    "main.9c81ac60.js.map": "/project4/static/js/main.9c81ac60.js.map",
-    "787.4177f587.chunk.js.map": "/project4/static/js/787.4177f587.chunk.js.map"
+    "main.css": "/MAPsMART/static/css/main.0eb31110.css",
+    "main.js": "/MAPsMART/static/js/main.dbc58a38.js",
+    "static/js/787.4177f587.chunk.js": "/MAPsMART/static/js/787.4177f587.chunk.js",
+    "index.html": "/MAPsMART/index.html",
+    "main.0eb31110.css.map": "/MAPsMART/static/css/main.0eb31110.css.map",
+    "main.dbc58a38.js.map": "/MAPsMART/static/js/main.dbc58a38.js.map",
+    "787.4177f587.chunk.js.map": "/MAPsMART/static/js/787.4177f587.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0eb31110.css",
-    "static/js/main.9c81ac60.js"
+    "static/js/main.dbc58a38.js"
   ]
 }
